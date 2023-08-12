@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TREASURE HUNT</title>
+    <link rel="stylesheet" href="/css/tle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Merriweather&family=Montserrat&family=Oswald&family=Sacramento&family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  
+  <div class="heading">
+    <h1 class="display-1">Debug</h1>
+    <div class="buttons">
+
+        <div class="action_btn">
+
+            <button type="button" class="btn btn-primary btn-lg" onclick="myFunction1()">RULES</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="myFunction2()">CONTACT US</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="myFunction3()">TOOLS</button>
+        <p id="saved"></p>
+
+        </div>
+
+    </div>
+</div>
+  <section id="features">
+    <h2>CODE 1</h2>
+    <p class="code1">#include <iostream>
+      using namespace std;
+           
+      void Store(){
+           
+           cout << "The Item store is not finished yet\n" << endl;
+           
+           int Mainmenu();
+           Mainmenu();
+           
+           }
+           
+      void Character(){
+           
+           int PlayerHp, PlayerStr, PlayerMana;
+           
+           cout << "Your character has:\n\n";
+                     
+           cout << PlayerHp << " Health" << endl;
+           cout << PlayerStr << " Strength" << endl;
+           cout << PlayerMana << " Mana" << endl;
+           
+           cout << endl;
+           
+           int Mainmenu();
+           Mainmenu();
+           }
+           
+      void Inventory(){
+           
+           cout << "Your inventory contains:\n" << endl;
+           
+           int Mainmenu();
+           Mainmenu();
+      
+           }
+           
+      void Wilderness(){
+           
+           cout << "You search the Jungle and find:\n" << endl;
+           
+           string Creatures[10];
+           
+           Creatures[0] = "1";
+           Creatures[1] = "2";
+           Creatures[2] = "3";
+           Creatures[3] = "4";
+           
+           cout << Creatures << " Is really dangerous " << endl;
+           
+           int Mainmenu();
+           Mainmenu();
+           }
+      
+      void Mainmenu(){
+           
+           string choice;
+           
+           cout << "1: Attack creature" << endl;
+           cout << "2: Buy equipment" << endl;
+           cout << "3: Inventory" << endl;
+           cout << "4: Stats" << endl;
+                
+                // invalid option returns to this
+                InvalidOption:
+                            
+           cin >> choice;
+           if (choice == "1"){
+                      Wilderness ();
+                      }
+           else if (choice == "2"){
+                           Store();
+                           }
+           else if (choice == "3"){
+                           Inventory();
+                           }
+           else if (choice == "4"){
+                           Character();
+                           }
+           else{
+                cout << "You have not chosen a valid option" << endl;
+                goto InvalidOption;
+           }
+                           
+      
+           
+           }
+      
+      int main()
+      {
+          int PlayerHp = 100, PlayerStr = 20, PlayerMana = 50;
+          Mainmenu ();
+      }</p>
+        <button id="submit" class="btn1">Hide</button>
+        <button id="submit" class="btn2">Show</button>
+        <h2>CODE 2</h2>
+              <p class="code2">#include <iostream>
+                using namespace std;
+                
+                int main() {
+                  cout << "Hello World!";
+                  return 0;
+                }</p>
+        <button id="submit" class="btn3">Hide</button>
+        <button id="submit" class="btn4">Show</button>
+        <h2>CODE 3</h2>
+        <p class="code3">#include <iostream>
+          using namespace std;
+          
+          int main() {
+            cout << "Hello World!";
+            return 0;
+          }</p>
+
+          <button  id="submit" class="btn5">Hide</button>
+          <button id="submit" class="btn6">Show</button>
+  </section>
+
+  <section id="features1">
+    <form method="POST" action="/submit-answer">
+      <input type="hidden" name="page" value="2"> <!-- Set the value to the current page number -->
+      <h2>Please select the code with TLE:</h2>
+      <input type="radio" name="action" value="increase" id="increase" checked>
+      <label for="increase">CODE 1 (Correct)</label>
+      <br>
+      <input type="radio" name="action" value="decrease" id="decrease">
+      <label for="decrease">CODE 2 (Incorrect)</label>
+      <br>
+      <input type="radio" name="action" value="decrease" id="decrease2">
+      <label for="decrease2">CODE 3 (Incorrect)</label>
+      <br>
+      <input type="radio" name="action" value="decrease" id="decrease3">
+      <label for="decrease3">CODE 4 (Incorrect)</label>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>  
+  <script>   
+  
+  
+  
+  
+        $(document).ready(function(){
+            $(".btn1").click(function(){
+              $(".code1").hide(1000);
+            });
+            $(".btn2").click(function(){
+              $(".code1").show(1000);
+            });
+          });
+        
+          $(document).ready(function(){
+            $(".btn3").click(function(){
+              $(".code2").hide(1000);
+            });
+            $(".btn4").click(function(){
+              $(".code2").show(1000);
+            });
+          });
+        
+          $(document).ready(function(){
+            $(".btn5").click(function(){
+              $(".code3").hide(1000);
+            });
+            $(".btn6").click(function(){
+              $(".code3").show(1000);
+            });
+          });
+        
+          function myFunction1() {
+            window.location.href = "rules.html";
+          }
+          function myFunction2() {
+            window.location.href = "contactus.html";
+          }
+          function myFunction3() {
+            window.location.href = "tools.html";
+          }
+
+
+
+         
+    </script>
+  
+  
+  </body>
+  
+  </html>

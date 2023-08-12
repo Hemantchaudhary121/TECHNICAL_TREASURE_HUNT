@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Treasurehunt</title>
+    <link rel="icon" type="image/jpg" href="images/pcc.jpg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to top right, #000000 32%, #ffcc00 100%);
+        }
+    </style>
+</head>
+
+<body class="flex-col bg-black m-0">
+
+    <div class="heading flex-col m-5">
+        <div class="buttons">
+
+            <div class="action_btn flex text-center w-full justify-evenly">
+
+                <button type="button" class="btn btn-primary btn-lg font-extrabold text-blue-600 text-xl"
+                    onclick="myFunction1()">RULES</button>
+                <button type="button" class="btn btn-primary btn-lg font-extrabold text-blue-600 text-xl"
+                    onclick="myFunction2()">CONTACT
+                    US</button>
+                <button type="button" class="btn btn-primary btn-lg font-extrabold text-blue-600 text-xl"
+                    onclick="myFunction3()">TOOLS</button>
+                <p id="saved"></p>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="flex">
+        <div class="font-serif  font-light text-white p-4 border-8 border-black rounded-2xl my-4 mx-4 h-fit">
+            <p>
+                #include iostream <br>
+                using namespace std;<br>
+
+                int search(int a[], int n, int key)<br>
+                {
+                int s = 0;<br>
+                int e = n;<br>
+                int mid;<br>
+                while (e >= s)<br>
+                {
+                mid = (s + e) / 2;<br>
+                if (key == a[mid])<br>
+                return mid;<br>
+                if (key > a[mid])<br>
+                s = mid + 1;<br>
+                else<br>
+                e = mid - 1;
+                }<br>
+                return -1;<br>
+                }
+                int main()<br>
+                {
+                int n, i, key, k;<br>
+                cout << "enter the no. of element " << endl; cin>> n;<br>
+                    int a[n];<br>
+                    for (i = 0; i < n; i++) <br>
+                        { cout << i << "-th element=" << endl; <br>
+                            cin>> a[i];}<br>
+                            cout << "enter the element you want to find" << endl; <br>
+                                cin>> key;<br>
+                                cout << search(a, n, key) << endl; <br>
+                                    return 0; }
+            </p>
+        </div>
+        <div class="mx-60 my-60 border-4 p-20 rounded-3xl ">
+            <form method="POST" action="/submit-answer-segmen">
+                <input type="hidden" name="page" value="2">
+                <input type="radio" id="increase" name="action" value="increase" checked>
+                <label for="increase" class="font-extrabold text-yellow-500 font-mono text-3xl">Time Limit
+                    Exceeded</label><br>
+                <input type="radio" id="decrease" name="action" value="decrease">
+                <label for="decrease" class="font-extrabold text-green-600 font-mono text-3xl">Segmentation
+                    Fault</label><br>
+                <input type="radio" id="decrease" name="action" value="decrease">
+                <label for="decrease" class="font-extrabold text-red-800 font-mono text-3xl">Runtime Error</label><br>
+                <input type="radio" id="decrease" name="action" value="decrease">
+                <label for="decrease" class="font-extrabold text-blue-600 font-mono text-3xl">Sytax Error</label><br>
+                <button type="submit"
+                    class=" w-60 ml-12 mt-6 p-2 border rounded-md text-white hover:text-3xl hover:border-8">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

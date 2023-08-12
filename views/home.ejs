@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab || www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical tresureHunt</title>
+  <link rel="icon" type="image/jpg" href="images/pcc.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/home.css" />
+  <!-- Unicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    // Function to fetch leaderboard data using AJAX
+    function fetchLeaderboardData() {
+      fetch('/api/leaderboard')
+        .then((response) => response.json())
+        .then((data) => {
+          // Populate the leaderboard table with the fetched data
+          const leaderboardTable = document.getElementById('leaderboard-table');
+          leaderboardTable.innerHTML = '';
+
+          data.forEach((entry, index) => {
+            const row = `<tr>
+                        <td>${index + 1}</td>
+                        <td>${entry.username}</td>
+                        <td>${entry.totalScore}</td>
+                      </tr>`;
+            leaderboardTable.insertAdjacentHTML('beforeend', row);
+          });
+        })
+        .catch((error) => {
+          console.error('Error fetching leaderboard data:', error);
+        });
+    }
+    // Function to update the total score using AJAX
+    function updateTotalScore() {
+      fetch('/update_total_score', {
+        method: 'POST',
+        credentials: 'same-origin', // This sends cookies along with the request
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data); // Log the response data (optional)
+          fetchLeaderboardData(); // After updating, fetch leaderboard data again to refresh the table
+        })
+        .catch((error) => {
+          console.error('Error updating total score:', error);
+        });
+    }
+
+    // Call the fetchLeaderboardData function when the page loads
+    document.addEventListener('DOMContentLoaded', fetchLeaderboardData);
+  </script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="nav_logo"><span id="intro"></span></a>
+
+      <ul class="nav_items">
+        <li class="nav_item">
+          <a class="nav_link" href="#">Home</a>
+          <a class="nav_link rulenav">Rules</a>
+          <a class="nav_link dnav">DashBoard</a>
+          <a class="nav_link cnav">Contact</a>
+        </li>
+      </ul>
+
+      <h1>Welcome, <%= username %>!</h1>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+  <!-- <head>
+    <meta charset="utf-8">
+    <title>Infinite Card Slider JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     Fontawesome Link for Icons -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="script.js" defer></script>
+  </head> -->
+
+  <!-- Home -->
+  <section class="home">
+    <div class="top">
+      <div class="comment">
+        <h1>Dare to play!!</h1><br> A game coined and developed by Arnab and Hemant of PCC Club of NITT
+      </div>
+      <div><img src="images/imgcode.jpg" alt="gone" id="imgcode"></div>
+    </div>
+    <div class="wrapper">
+      <i id="left" class="fa-solid fa-angle-left"></i>
+      <ul class="carousel">
+        <li class="card">
+          <div class="img"><a href="/password_debug"><img src="images/img-1.jpg" alt="img" draggable="false"></a></div>
+          <h2>DEBUGGER</h2>
+          <span>KILL THE BLOODY BUG</span>
+        </li>
+        <li class="card">
+          <div class="img"><a href="/password_compiler"><img src="images/img-2.jpg" alt="img" draggable="false"></a></div>
+          <h2>DRY RUNNER</h2>
+          <span>A GOOD RUN RESOLVES</span>
+        </li>
+        <li class="card">
+          <div class="img"><a href="/segmen/1"><img src="images/img-3.jpg" alt="img" draggable="false"></a>
+          </div>
+          <h2>EAGLE EYE</h2>
+          <span>FIND ERROR</span>
+        </li>
+        <li class="card">
+          <div class="img"><a href="/tle/1"><img src="images/img-4.jpg" alt="img" draggable="false"></a></div>
+          <h2>TESTIFY</h2>
+          <span>PASS THE TEST</span>
+        </li>
+        <li class="card">
+          <div class="img"><a href="/password_input"><img src="images/img-5.jpg" alt="img" draggable="false"></a></div>
+          <h2>EDGIFY</h2>
+          <span>BAD CODER'S REWARD</span>
+        </li>
+      </ul>
+      <i id="right" class="fa-solid fa-angle-right"></i>
+    </div>
+    <div class="rule">
+      <div id="ruk" class="ruk">RULES</div>
+      <hr style="width: 70%; margin-left:15% ;">
+      <div class="pagewrapper">
+        <div class="box">
+          <ol class="boldlist">
+            <li>
+              <b>Keep it simple.</b>
+              Clean is better than cluttered. Website visitors get frustrated when they can't find the content they
+              need. Keep your pages simple, and your website will be easier to use.
+            </li>
+            <li>
+              <b>Make a good first impression.</b>
+              When you meet someone for the first time, it is important to make a good first impression. The same holds
+              true for websites. Most users will judge the quality of your website within a few seconds.
+            </li>
+            <li>
+              <b>Provide intuitive navigation.</b>
+              Website navigation should feel natural and effortless. Pages and sections should be well-organized with a
+              clear hierarchy so visitors can easily browse through the different areas of your site.
+            </li>
+            <li>
+              <b>Be consistent.</b>
+              You can use different design templates within your website, but the pages should flow together with a
+              cohesive style. A consistent look and feel across your site provides a natural experience.
+            </li>
+            <li>
+              <b>Choose your colors carefully.</b>
+              Color selection can make or break a website. When choosing colors, use a limited palette of four or five
+              colors that don't clash. If possible, provide a dark mode option for users who prefer a dark background.
+            </li>
+            <li>
+              <b>Make your website responsive.</b>
+              People access websites from a variety of devices, including smartphones, tablets, laptops, and desktop
+              computers. Your website should look great on all these devices. CSS media queries make it possible to
+              implement responsive web design with minimal code.
+            </li>
+            <li>
+              <b>Develop for multiple browsers.</b>
+              People don't just use different devices — they also use different web browsers. Test your website in
+              multiple browsers to make sure everything functions correctly. It's best to catch browser-related issues
+              before your visitors discover them.
+            </li>
+            <li>
+              <b>Check your website for errors.</b>
+              A small mistake can tarnish a great piece of work. Check your website regularly for typos, broken links,
+              and images that do not load correctly. Validate your HTML and CSS to make sure there are no syntax errors.
+            </li>
+
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="dash">
+      <div class="da">DashBoard</div>
+      <hr style="width: 70%; margin-left:15% ;">
+      <div class="leaderboard">
+        <table class="zigzag">
+          <thead>
+            <tr>
+              <th class="h">Rank</th>
+              <th class="h">Username</th>
+              <th class="h">Total Score</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-table">
+            <!-- The leaderboard data will be populated here using JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add the "Update Total Score" button below the leaderboard table -->
+      <div class="upsc">
+        <button id="update-score-btn">Update Total Score</button>
+      </div>
+    </div>
+
+    </div>
+    <div class="con">
+      <div class="co">Contacts</div>
+      <hr style="width: 70%; margin-left:15% ;">
+      <div class=" flex  justify-center mt-20">
+        <div class="card flex flex-col p-10  border-2 border-black rounded-2xl mr-4">
+          <img src="images/arnab.jpeg" alt="" class="h-20 w-20 rounded-full">
+          <p class="font-bold">
+            ARNAB BANERJEE <br>
+            Co-ordinator at Tecnical TreasureHunt <br>
+            A Event By Parallel Computing Club <br>
+            Email: banarnablinked@gmail.com <br>
+            Ph no: +91 9903466014 <br>
+          </p>
+        </div>
+        <div class="card flex flex-col p-10 border-2 border-black rounded-2xl ml-4">
+          <img src="images/hemant.jpg" alt="" class="h-20 w-20 rounded-full">
+          <p class="font-bold">
+            HEMANT CHOUDHARY <br>
+            Co-ordinator at Tecnical TreasureHunt <br>
+            A Event By Parallel Computing Club <br>
+            Email: rorhemant2@gmail.com <br>
+            Ph no: +91 7505452517 <br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+<script src="/src/index.js"></script>
+<script>
+  const updateScoreBtn = document.getElementById('update-score-btn');
+  updateScoreBtn.addEventListener('click', updateTotalScore);
+</script>
+
+</html>
